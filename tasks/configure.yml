@@ -79,6 +79,7 @@
 - name: Set context mapping definition
   sefcontext:
     target: '/opt/mysql(/.*)?'
+    target: "{{ mysql_datadir }}(/.*)?"
     setype: mysqld_db_t
     state: present
   when: ansible_selinux.status == "enabled"
